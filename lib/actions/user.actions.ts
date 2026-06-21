@@ -1,4 +1,4 @@
-"user server";
+"use server";
 
 import { signIn, signOut } from "next-auth/react";
 import { signInFormSchema } from "../validators";

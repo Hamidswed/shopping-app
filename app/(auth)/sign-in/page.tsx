@@ -7,10 +7,17 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import SignInForm from "./SignInForm";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
-export default function SignInPage() {
+export default async function SignInPage() {
+  const session = await auth();
+
+  if (session) {
+    return redirect("/");
+  }
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center w-full">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-4">
           <Link href={"/"}>بازگشت به فروشگاه</Link>
