@@ -1,3 +1,4 @@
+import { Product } from "@/types";
 import ProductCard from "./ProductCard";
 
 function ProductList({
@@ -5,7 +6,7 @@ function ProductList({
   title,
   limit,
 }: {
-  data: any;
+  data: Product[];
   title?: string;
   limit?: number;
 }) {
@@ -15,7 +16,7 @@ function ProductList({
       <h2 className="font-bold text-2xl mb4">{title}</h2>
       {limitedData.length > 0 ? (
         <div className="grid grid-cols-4 gap-4">
-          {limitedData.map((item: any) => (
+          {limitedData.map((item: Product) => (
             <ProductCard key={item.slug} product={item} />
           ))}
         </div>
