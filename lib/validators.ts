@@ -10,3 +10,8 @@ export const insertProductSchema = z.object({
   image: z.string(),
   price: z.number(),
 });
+
+export const signInFormSchema = z.object({
+  email: z.email("ایمیل اشتباه است"),
+  password: z.string().min(5, "رمز عبور باید حداقل 5 کاراکتر باشد"),
+});
